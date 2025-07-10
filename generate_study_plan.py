@@ -191,7 +191,7 @@ def select_problems_for_day(day, selected_category, category_problems, used_prob
 
     return day_problems
 
-def generate_fixed_125_day_plan(problems):
+def generate_fixed_125_day_plan(problems, start_date):
     """Generate a fixed 125-day plan that includes ALL 250 problems."""
 
     # Define category order (from easiest to hardest)
@@ -224,9 +224,6 @@ def generate_fixed_125_day_plan(problems):
     used_problems = set()
     category_usage_history = deque(maxlen=10)  # Track recent category usage
     category_progress = {cat: {'Easy': 0, 'Medium': 0, 'Hard': 0} for cat in category_order}
-
-    # Start date
-    start_date = datetime(2025, 1, 1)
 
     # Generate plan - continue until all problems are used
     day = 0
@@ -372,11 +369,52 @@ def generate_markdown_plan(plan):
 
     return markdown
 
+def get_start_date():
+    """Get the start date from user input."""
+    print("📅 When would you like to start your 125-day study plan?")
+    print("Examples:")
+    print("  - 2025-01-01 (New Year)")
+    print("  - today (starts today)")
+    print("  - monday (starts next Monday)")
+    print("  - Press Enter for default (next Monday)")
+
+    while True:
+        try:
+            date_input = input("\nEnter start date (YYYY-MM-DD, 'today', 'monday', or Enter for default): ").strip().lower()
+
+            if date_input == '' or date_input == 'monday':
+                # Default to next Monday
+                today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+                days_ahead = 0 - today.weekday()  # Monday is 0
+                if days_ahead <= 0:  # Target day already happened this week
+                    days_ahead += 7
+                return today + timedelta(days=days_ahead)
+            elif date_input == 'today':
+                return datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+            else:
+                # Try to parse as YYYY-MM-DD
+                return datetime.strptime(date_input, '%Y-%m-%d')
+        except ValueError:
+            print("❌ Invalid date format. Please use YYYY-MM-DD, 'today', 'monday', or press Enter for default")
+            continue
+        except (EOFError, KeyboardInterrupt):
+            # Handle non-interactive environments or Ctrl+C
+            print("\n📅 Using default start date (next Monday)")
+            today = datetime.now().replace(hour=0, minute=0, second=0, microsecond=0)
+            days_ahead = 0 - today.weekday()  # Monday is 0
+            if days_ahead <= 0:  # Target day already happened this week
+                days_ahead += 7
+            return today + timedelta(days=days_ahead)
+
 def main():
     print("🔧 Generating FIXED 125-day plan with ALL 250 problems...")
 
     # Set random seed for reproducible results
     random.seed(42)
+
+    # Get start date from user
+    start_date = get_start_date()
+    print(f"📅 Study plan will start on: {start_date.strftime('%A, %B %d, %Y')}")
 
     # Load all problems
     all_problems = load_problems()
@@ -384,7 +422,7 @@ def main():
 
     # Generate fixed plan
     print(f"\n🗓️ Generating complete plan...")
-    plan = generate_fixed_125_day_plan(all_problems)
+    plan = generate_fixed_125_day_plan(all_problems, start_date)
 
     # Count total problems in plan
     total_problems_in_plan = sum(len(day['problems']) for day in plan)
@@ -402,11 +440,11 @@ def main():
     markdown_content = generate_markdown_plan(plan)
 
     # Save to file
-    with open('NeetCode_250_Complete_Fixed_125_Day_Plan.md', 'w') as f:
+    with open('NeetCode_250_Study_Plan.md', 'w') as f:
         f.write(markdown_content)
 
     print(f"✅ Generated complete 125-day plan with {len(plan)} days")
-    print(f"📄 Saved to: NeetCode_250_Complete_Fixed_125_Day_Plan.md")
+    print(f"📄 Saved to: NeetCode_250_Study_Plan.md")
 
     # Summary statistics
     print(f"\n📈 Plan Statistics:")

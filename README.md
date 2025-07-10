@@ -5,6 +5,7 @@ A Python-based tool that generates an optimized 125-day study plan covering all 
 ## 🚀 Features
 
 - **Complete Coverage**: Includes all 250 NeetCode problems with no gaps
+- **Personalized Start Date**: Choose when to begin your study journey
 - **Intelligent Scheduling**: 2 problems per day from the same category when possible
 - **Spaced Repetition**: Categories cycle with intelligent spacing to optimize retention
 - **Progressive Difficulty**: Early days focus on Easy problems, gradually increasing complexity
@@ -44,17 +45,23 @@ The generated plan includes:
 
 ### Generate Study Plan
 ```bash
-python3 generate_fixed_125_day_plan.py
+python3 generate_study_plan.py
 ```
 
-This creates `NeetCode_250_Complete_Fixed_125_Day_Plan.md` with your personalized study schedule.
+The script will prompt you to choose when to start your study plan:
+- **Specific date**: Enter `2025-01-01` or any YYYY-MM-DD format
+- **Start today**: Enter `today`
+- **Start next Monday**: Enter `monday` or just press Enter for default
+- **Interactive examples**: The script provides helpful examples and validation
+
+This creates `NeetCode_250_Study_Plan.md` with your personalized study schedule.
 
 
 ## 📁 Files
 
-- **`generate_fixed_125_day_plan.py`** - Main generator script
+- **`generate_study_plan.py`** - Main generator script
 - **`neetcode_250_complete.json`** - Master dataset with all 250 problems
-- **`NeetCode_250_Complete_Fixed_125_Day_Plan.md`** - Generated study plan
+- **`NeetCode_250_Study_Plan.md`** - Generated study plan
 - **`CLAUDE.md`** - Technical documentation
 
 ## 🧠 Algorithm Features

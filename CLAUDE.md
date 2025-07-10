@@ -13,7 +13,7 @@ This is a NeetCode 250 study plan generator that creates a structured 125-day co
 - **Problem categories**: Arrays & Hashing, Two Pointers, Sliding Window, Stack, Binary Search, Linked List, Trees, Heap/Priority Queue, Backtracking, Tries, Graphs, Advanced Graphs, 1-D Dynamic Programming, 2-D Dynamic Programming, Greedy, Intervals, Math & Geometry, Bit Manipulation
 
 ### Generator Scripts
-- **generate_fixed_125_day_plan.py**: Main generator creating optimal 125-day plan with all 250 problems
+- **generate_study_plan.py**: Main generator creating optimal 125-day plan with all 250 problems
 
 ### Plan Generation Strategy
 1. **Same Category Focus**: Both daily problems from same category when possible for pattern recognition
@@ -27,7 +27,7 @@ This is a NeetCode 250 study plan generator that creates a structured 125-day co
 ### Generate Study Plan
 ```bash
 # Generate the complete 125-day plan
-python3 generate_fixed_125_day_plan.py
+python3 generate_study_plan.py
 ```
 
 ### Data Inspection
@@ -42,8 +42,8 @@ ls -la *.md
 ## File Structure
 
 - **Data**: `neetcode_250_complete.json` (master problem dataset)
-- **Generated Plan**: `NeetCode_250_Complete_Fixed_125_Day_Plan.md` (final study plan)
-- **Scripts**: `generate_fixed_125_day_plan.py`
+- **Generated Plan**: `NeetCode_250_Study_Plan.md` (final study plan)
+- **Scripts**: `generate_study_plan.py`
 - **Documentation**: `CLAUDE.md` (this file)
 
 ## Key Features
