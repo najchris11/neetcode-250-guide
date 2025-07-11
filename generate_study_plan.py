@@ -407,10 +407,10 @@ def get_start_date():
             return today + timedelta(days=days_ahead)
 
 def main():
-    print("🔧 Generating FIXED 125-day plan with ALL 250 problems...")
+    print("🔧 Generating 125-day plan with ALL 250 problems...")
 
     # Set random seed for reproducible results
-    random.seed(42)
+    # random.seed(42)  # Uncomment for reproducible results
 
     # Get start date from user
     start_date = get_start_date()
@@ -439,12 +439,22 @@ def main():
     # Generate markdown
     markdown_content = generate_markdown_plan(plan)
 
+    # Check if file already exists and find next available filename
+    import os
+    base_filename = f'NeetCode_250_Study_Plan_{start_date.strftime("%Y-%m-%d")}'
+    filename = f'{base_filename}.md'
+    counter = 1
+
+    while os.path.exists(filename):
+        filename = f'{base_filename}_{counter}.md'
+        counter += 1
+
     # Save to file
-    with open('NeetCode_250_Study_Plan.md', 'w') as f:
+    with open(filename, 'w') as f:
         f.write(markdown_content)
 
     print(f"✅ Generated complete 125-day plan with {len(plan)} days")
-    print(f"📄 Saved to: NeetCode_250_Study_Plan.md")
+    print(f"📄 Saved to: {filename}")
 
     # Summary statistics
     print(f"\n📈 Plan Statistics:")
