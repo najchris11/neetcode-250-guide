@@ -14,8 +14,8 @@
 **Topic:** Intervals
 
 **Problems:**
-- [ ] 🟢 [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) - *Intervals*
-- [ ] 🟡 [Insert Interval](https://leetcode.com/problems/insert-interval/) - *Intervals*
+- [X] 🟢 [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) - *Intervals*
+- [X] 🟡 [Insert Interval](https://leetcode.com/problems/insert-interval/) - *Intervals*
 
 ## Day 2 - 2025-08-13
 **Topic:** Arrays & Hashing
