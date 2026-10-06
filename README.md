@@ -15,21 +15,21 @@
 
 **Problems:**
 - [X] 🟢 [Meeting Rooms](https://leetcode.com/problems/meeting-rooms/) - *Intervals*
-- [X] 🟡 [Insert Interval](https://leetcode.com/problems/insert-interval/) - *Intervals*
+- [ ] 🟡 [Insert Interval](https://leetcode.com/problems/insert-interval/) - *Intervals*
 
 ## Day 2 - 2025-08-13
 **Topic:** Arrays & Hashing
 
 **Problems:**
-- [ ] 🟢 [Concatenation of Array](https://leetcode.com/problems/concatenation-of-array/) - *Arrays & Hashing*
-- [ ] 🟢 [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - *Arrays & Hashing*
+- [X] 🟢 [Concatenation of Array](https://leetcode.com/problems/concatenation-of-array/) - *Arrays & Hashing*
+- [X] 🟢 [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) - *Arrays & Hashing*
 
 ## Day 3 - 2025-08-14
 **Topic:** Math & Geometry
 
 **Problems:**
-- [ ] 🟢 [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/) - *Math & Geometry*
-- [ ] 🟢 [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/) - *Math & Geometry*
+- [X] 🟢 [Excel Sheet Column Title](https://leetcode.com/problems/excel-sheet-column-title/) - *Math & Geometry*
+- [X] 🟢 [Greatest Common Divisor of Strings](https://leetcode.com/problems/greatest-common-divisor-of-strings/) - *Math & Geometry*
 
 ## Day 4 - 2025-08-15
 **Topic:** Greedy
